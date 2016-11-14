@@ -7,14 +7,12 @@
   ],
   "parser": "babel-eslint",
   "parserOptions": {
-    "ecmaVersion": 6,
+    "ecmaVersion": 7,
     "sourceType": "module"
   },
   "env": {
-    "es6": true,
     "browser": true,
     "node": true,
-    "jquery": true,
     "mocha": true
   },
   "rules": {
