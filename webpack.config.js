@@ -1,4 +1,5 @@
 import webpack from 'webpack';
+import path from 'path';
 
 const GLOBALS = {
   'process.env.NODE_ENV': JSON.stringify('development'),
@@ -6,28 +7,26 @@ const GLOBALS = {
 };
 
 export default {
-  debug: true,
-  devtool: 'eval-source-map',
-  noInfo: true,
+  devtool: 'cheap-module-eval-source-map',
   entry: [
     './src/webpack-public-path',
     'webpack-hot-middleware/client?reload=true',
-    './src/index'
+    path.resolve(__dirname, 'src/index')
   ],
   target: 'web',
   output: {
-    path: __dirname + '/src',
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     filename: 'bundle.js'
   },
   plugins: [
     new webpack.DefinePlugin(GLOBALS),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin()
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   module: {
-    loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel' }
+    rules: [
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
     ]
   }
 };
