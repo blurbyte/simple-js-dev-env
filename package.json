@@ -1,9 +1,18 @@
 {
   "name": "simple-js-dev-env",
-  "version": "1.0.0",
-  "description": "e",
+  "version": "2.0.0",
+  "description": "Simple JavaScript development environment for prototyping / testing new concepts",
   "main": "src/index.js",
   "author": "blurbyte",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blurbyte/simple-js-dev-env"
+  },
+  "keywords": [
+    "javascript",
+    "babel",
+    "webpack2"
+  ],
   "license": "mit",
   "engines": {
     "node": ">=4"
@@ -17,23 +26,23 @@
     "open:dev": "babel-node tools/devServer.js"
   },
   "devDependencies": {
-    "babel-cli": "6.18.0",
-    "babel-core": "6.18.0",
-    "babel-eslint": "7.1.0",
-    "babel-loader": "6.2.6",
-    "babel-preset-latest": "6.16.0",
-    "babel-preset-stage-1": "6.16.0",
-    "browser-sync": "2.17.5",
+    "babel-cli": "6.22.2",
+    "babel-core": "6.22.1",
+    "babel-eslint": "7.1.1",
+    "babel-loader": "6.2.10",
+    "babel-preset-latest": "6.22.0",
+    "babel-preset-stage-1": "6.22.0",
+    "browser-sync": "2.18.7",
     "chai": "3.5.0",
-    "eslint": "3.8.1",
-    "eslint-plugin-import": "2.0.1",
+    "eslint": "3.14.1",
+    "eslint-plugin-import": "2.2.0",
     "eslint-watch": "2.1.14",
-    "mocha": "3.1.2",
+    "mocha": "3.2.0",
     "npm-run-all": "3.1.1",
     "open": "0.0.5",
     "rimraf": "2.5.4",
-    "webpack": "1.13.3",
-    "webpack-dev-middleware": "1.8.4",
-    "webpack-hot-middleware": "2.13.0"
+    "webpack": "2.2.1",
+    "webpack-dev-middleware": "1.9.0",
+    "webpack-hot-middleware": "2.16.1"
   }
 }
