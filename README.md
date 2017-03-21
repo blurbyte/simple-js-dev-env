@@ -2,7 +2,7 @@
 
 Development environment with essential tools to prototype / test JavaScript concepts.
 
-###Getting started
+### Getting started
 
 **Node.js** is required to run this project.
 
