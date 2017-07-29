@@ -1,15 +1,9 @@
-import webpack from 'webpack';
-import path from 'path';
+const webpack = require('webpack');
+const path = require('path');
 
-const GLOBALS = {
-  'process.env.NODE_ENV': JSON.stringify('development'),
-  __DEV__: true
-};
-
-export default {
-  devtool: 'cheap-module-eval-source-map',
+module.exports = {
+  devtool: 'eval-source-map',
   entry: [
-    './src/webpack-public-path',
     'webpack-hot-middleware/client?reload=true',
     path.resolve(__dirname, 'src/index')
   ],
@@ -20,13 +14,13 @@ export default {
     filename: 'bundle.js'
   },
   plugins: [
-    new webpack.DefinePlugin(GLOBALS),
+    new webpack.DefinePlugin({'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)}),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin()
   ],
   module: {
     rules: [
-      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
+      { test: /\.js$/, include: path.resolve(__dirname, 'src'), loader: 'babel-loader' }
     ]
   }
 };
