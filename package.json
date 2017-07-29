@@ -1,6 +1,6 @@
 {
   "name": "simple-js-dev-env",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Simple JavaScript development environment for prototyping / testing new concepts",
   "main": "src/index.js",
   "author": "blurbyte",
