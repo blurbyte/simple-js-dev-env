@@ -11,38 +11,89 @@
   "keywords": [
     "javascript",
     "babel",
-    "webpack2"
+    "webpack3"
   ],
   "license": "mit",
   "engines": {
     "node": ">=4"
   },
   "scripts": {
-    "start": "npm-run-all --parallel test:watch open:dev lint:watch",
-    "lint": "esw webpack.config.* src tools --color",
-    "lint:watch": "npm run lint -- --watch",
-    "test": "mocha tools/testSetup.js \"src/**/*.test.js\" --reporter progress",
-    "test:watch": "npm run test -- --watch",
-    "open:dev": "babel-node tools/devServer.js"
+    "start": "node tools/startSetup.js && npm run open:dev",
+    "lint": "eslint src tools",
+    "test": "node tools/testSetup.js && jest",
+    "test:watch": "jest --watch",
+    "open:dev": "node tools/devServer.js"
   },
   "devDependencies": {
-    "babel-cli": "6.22.2",
-    "babel-core": "6.22.1",
-    "babel-eslint": "7.1.1",
-    "babel-loader": "6.2.10",
-    "babel-preset-latest": "6.22.0",
-    "babel-preset-stage-1": "6.22.0",
-    "browser-sync": "2.18.7",
-    "chai": "3.5.0",
-    "eslint": "3.14.1",
-    "eslint-plugin-import": "2.2.0",
-    "eslint-watch": "2.1.14",
-    "mocha": "3.2.0",
-    "npm-run-all": "3.1.1",
+    "babel-cli": "6.24.1",
+    "babel-core": "6.25.0",
+    "babel-eslint": "7.2.3",
+    "babel-loader": "7.1.1",
+    "babel-preset-env": "1.6.0",
+    "babel-preset-stage-1": "6.24.1",
+    "browser-sync": "2.18.13",
+    "eslint": "4.3.0",
+    "eslint-plugin-import": "2.7.0",
+    "jest": "20.0.4",
+    "npm-run-all": "4.0.2",
     "open": "0.0.5",
-    "rimraf": "2.5.4",
-    "webpack": "2.2.1",
-    "webpack-dev-middleware": "1.9.0",
-    "webpack-hot-middleware": "2.16.1"
+    "rimraf": "2.6.1",
+    "webpack": "3.4.1",
+    "webpack-dev-middleware": "1.11.0",
+    "webpack-hot-middleware": "2.18.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "moduleDirectories": [
+      "node_modules",
+      "src"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "stage-1"
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "eslint:recommended",
+      "plugin:import/errors",
+      "plugin:import/warnings"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "browser": true,
+      "node": true,
+      "jest": true
+    },
+    "rules": {
+      "quotes": 0,
+      "no-console": 1,
+      "no-debugger": 1,
+      "no-var": 1,
+      "semi": [
+        1,
+        "always"
+      ],
+      "no-trailing-spaces": 0,
+      "eol-last": 0,
+      "no-underscore-dangle": 0,
+      "no-alert": 0,
+      "no-lone-blocks": 0,
+      "import/no-unresolved": [
+        0,
+        {
+          "commonjs": true,
+          "amd": true
+        }
+      ],
+      "import/extensions": 1
+    }
   }
 }
